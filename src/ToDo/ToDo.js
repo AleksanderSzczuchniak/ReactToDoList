@@ -65,12 +65,12 @@ class ToDo extends React.Component {
                     deleteTask={this.deleteTask}
                 />
                 <Search
-                filterText={this.state.filterText}
-                onFilterTextChangeHandler={this.onFilterTextChangeHandler}
-                onAllClickHandler={this.onAllClickHandler}
-                onCompletedClickHandler={this.onCompletedClickHandler}
-                onUnCompletedClickHandler={this.onUnCompletedClickHandler}
-                 />
+                    filterText={this.state.filterText}
+                    onFilterTextChangeHandler={this.onFilterTextChangeHandler}
+                    onAllClickHandler={this.onAllClickHandler}
+                    onCompletedClickHandler={this.onCompletedClickHandler}
+                    onUnCompletedClickHandler={this.onUnCompletedClickHandler}
+                />
             </div>
         )
     }
