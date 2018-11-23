@@ -5,13 +5,25 @@ import Search from './Search'
 
 
 class ToDo extends React.Component {
-    state = {
-        tasks: [],
-        filterText: '',
-        chosenFilter: 'ALL',
-        newTaskText: ''
+    state = (
+        JSON.parse(localStorage.getItem('to-do-list-state'))
+        ||
+        {
+            tasks: [],
+            filterText: '',
+            chosenFilter: 'ALL',
+            newTaskText: ''
+        }
+    )
+
+    componentDidUpdate() {
+        this.saveInLocalStorage()
     }
 
+    saveInLocalStorage = () => localStorage.setItem(
+        'to-do-list-state',
+        JSON.stringify(this.state)
+    )
     createTask = text => ({
         taskText: text,
         isCompleted: false,
