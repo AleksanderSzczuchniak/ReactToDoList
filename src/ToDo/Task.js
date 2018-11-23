@@ -5,13 +5,13 @@ import { ListItem } from 'material-ui/List'
 import IconButton from 'material-ui/IconButton'
 
 const completedStyle = {
-  textDecoration: 'line-through'
+  textDecoration: 'underline overline wavy blue'
 }
 
 const Task = (props) => (
   <ListItem
     style={props.task.isCompleted ? completedStyle : {}}
-    onClick={() => props.completeTask(props.task.key)}
+    onClick={() => props.toggleTask(props.task.key)}
     primaryText={props.task.taskText}
     rightIconButton={
       <IconButton>

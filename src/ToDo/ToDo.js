@@ -55,13 +55,13 @@ class ToDo extends React.Component {
     )
   })
 
-  completeTask = taskKey => this.setState({
+  toggleTask = taskKey => this.setState({
     tasks: this.state.tasks.map(
       task => (
         (task.key === taskKey) ?
           {
             ...task,
-            isCompleted: true
+            isCompleted: !task.isCompleted
           }
           :
           task
@@ -98,7 +98,7 @@ class ToDo extends React.Component {
           filterText={this.state.filterText}
           chosenFilter={this.state.chosenFilter}
           tasksList={this.state.tasks}
-          completeTask={this.completeTask}
+          toggleTask={this.toggleTask}
           deleteTask={this.deleteTask}
         />
       </Paper>

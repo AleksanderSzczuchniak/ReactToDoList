@@ -33,7 +33,7 @@ const List = (props) => (
             <Task
               key={task.key}
               task={task}
-              completeTask={props.completeTask}
+              toggleTask={props.toggleTask}
               deleteTask={props.deleteTask}
             />
           )
