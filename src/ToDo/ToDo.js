@@ -1,9 +1,10 @@
 import React from 'react'
-import AddTask from '../AddTask';
+import AddTask from './AddTask'
+import List from './List'
 
 
 class ToDo extends React.Component {
-    state ={
+    state = {
         tasks: [],
         filterText: '',
         chosenFilter: 'ALL',
@@ -25,7 +26,7 @@ class ToDo extends React.Component {
         newTaskText: ''
     })
     deleteTask = taskKey => this.setState({
-        task:this.state.task.filter(
+        task: this.state.task.filter(
             task => task.key !== taskKey
         )
     })
@@ -33,29 +34,32 @@ class ToDo extends React.Component {
         task: this.state.task.map(
             task => (
                 (task.key === taskKey) ?
-                {
-                    ...task,
-                    isCompleted: true
-                }
-                :
-                task
+                    {
+                        ...task,
+                        isCompleted: true
+                    }
+                    :
+                    task
             )
         )
     })
-    onAllClickHandler = () => this.setState({ chosenFilter: 'ALL'})
-    onCompletedClickHandler = () => this.setState({ chosenFilter: 'COMPLETED'})
-    onUnCompletedClickHandler = () => this.setState ({ chosenFilter: 'UNCOMPLETED'})
+    onAllClickHandler = () => this.setState({ chosenFilter: 'ALL' })
+    onCompletedClickHandler = () => this.setState({ chosenFilter: 'COMPLETED' })
+    onUnCompletedClickHandler = () => this.setState({ chosenFilter: 'UNCOMPLETED' })
 
     onFilterTextChangeHandler = event => this.setState({ filterText: event.target.value })
     onNewTaskTextChangeHandler = event => this.setState({ newTaskText: event.target.value })
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <AddTask 
-                newTaskText={this.state.newTaskText}
-                onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
-                addTask={this.addTask}
+                <AddTask
+                    newTaskText={this.state.newTaskText}
+                    onNewTaskTextChangeHandler={this.onNewTaskTextChangeHandler}
+                    addTask={this.addTask}
+                />
+                <List
+                    tasksList={this.state.tasks}
                 />
             </div>
         )

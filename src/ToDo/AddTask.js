@@ -3,15 +3,15 @@ import React from 'react'
 const AddTask = (props) => (
     <div>
         <input
-        type='text'
-        value={props.newTaskText}
-        onChange={props.onNewTaskTextChangeHandler}
+            type='text'
+            value={props.newTaskText}
+            onChange={props.onNewTaskTextChangeHandler}
         />
         <button
-        onClick={props.addTask}
+            onClick={props.addTask}
         >
             AddTask!
         </button>
-        </div>
+    </div>
 )
 export default AddTask
