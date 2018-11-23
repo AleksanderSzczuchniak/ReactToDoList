@@ -73,6 +73,7 @@ class ToDo extends React.Component {
                 />
                 <Search
                     filterText={this.state.filterText}
+                    chosenFilter={this.state.chosenFilter}
                     onFilterTextChangeHandler={this.onFilterTextChangeHandler}
                     onAllClickHandler={this.onAllClickHandler}
                     onCompletedClickHandler={this.onCompletedClickHandler}

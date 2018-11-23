@@ -12,16 +12,19 @@ const Search = (props) => (
         </div>
         <div>
             <button
+                disabled={props.chosenFilter === 'ALL'}
                 onClick={props.onAllClickHandler}
             >
                 ALL
                 </button>
             <button
+                disabled={props.chosenFilter === "COMPLETED"}
                 onClick={props.onCompletedClickHandler}
             >
                 COMPLETE
                 </button>
             <button
+                disabled={props.chosenFilter === "UNCOMPLETED"}
                 onClick={props.onUnCompletedClickHandler}
             >
                 UNCOMPLETE
