@@ -26,12 +26,12 @@ class ToDo extends React.Component {
         newTaskText: ''
     })
     deleteTask = taskKey => this.setState({
-        task: this.state.task.filter(
+        tasks: this.state.tasks.filter(
             task => task.key !== taskKey
         )
     })
     completeTask = taskKey => this.setState({
-        task: this.state.task.map(
+        tasks: this.state.tasks.map(
             task => (
                 (task.key === taskKey) ?
                     {
@@ -60,6 +60,8 @@ class ToDo extends React.Component {
                 />
                 <List
                     tasksList={this.state.tasks}
+                    completeTask={this.completeTask}
+                    deleteTask={this.deleteTask}
                 />
             </div>
         )
