@@ -3,7 +3,7 @@ import React from 'react'
 
 class ToDo extends React.Component {
     state ={
-        task: [],
+        tasks: [],
         filterText: '',
         chosenFilter: 'ALL',
         newTaskText: ''
@@ -16,11 +16,12 @@ class ToDo extends React.Component {
     })
 
     addTask = () => this.setState({
-        tasks: this.setState.tasks.concat(
+        tasks: this.state.tasks.concat(
             this.createTask(
                 this.state.newTaskText
             )
-        )
+        ),
+        newTaskText: ''
     })
     deleteTask = taskKey => this.setState({
         task:this.state.task.filter(
@@ -40,11 +41,26 @@ class ToDo extends React.Component {
             )
         )
     })
+    onAllClickHandler = () => this.setState({ chosenFilter: 'ALL'})
+    onCompletedClickHandler = () => this.setState({ chosenFilter: 'COMPLETED'})
+    onUnCompletedClickHandler = () => this.setState ({ chosenFilter: 'UNCOMPLETED'})
+
+    onFilterTextChangeHandler = event => this.setState({ filterText: event.target.value })
+    onNewTaskTextChangeHandler = event => this.setState({ newTaskText: event.target.value })
 
     render(){
         return(
             <div>
-                ToDo
+                <input
+                type='text'
+                value={this.state.newTaskText}
+                onChange={this.onNewTaskTextChangeHandler}
+                />
+                <button
+                onClick={this.addTask}
+                >
+                    Add task!
+                </button>
             </div>
         )
     }

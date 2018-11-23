@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import ToDo from './ToDo'
 
-const App = (peops) => (
+const App = (props) => (
   <div>
     <ToDo />
   </div>
