@@ -1,6 +1,7 @@
 import React from 'react'
 import AddTask from './AddTask'
 import List from './List'
+import Search from './Search'
 
 
 class ToDo extends React.Component {
@@ -63,6 +64,13 @@ class ToDo extends React.Component {
                     completeTask={this.completeTask}
                     deleteTask={this.deleteTask}
                 />
+                <Search
+                filterText={this.state.filterText}
+                onFilterTextChangeHandler={this.onFilterTextChangeHandler}
+                onAllClickHandler={this.onAllClickHandler}
+                onCompletedClickHandler={this.onCompletedClickHandler}
+                onUnCompletedClickHandler={this.onUnCompletedClickHandler}
+                 />
             </div>
         )
     }
